@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace _Scripts
@@ -7,6 +8,8 @@ namespace _Scripts
     {
         public static BallManager Instance;
         [SerializeField] private Transform spawnPosition;
+        [SerializeField] private TextMeshProUGUI moneyText;
+        [SerializeField] private TextMeshProUGUI buttonPrice;
         public int money;
 
         private void Awake()
@@ -14,10 +17,21 @@ namespace _Scripts
             Instance = this;
         }
 
+        private void Update()
+        {
+            moneyText.text = "$" + money;
+        }
+
         public void SpawnBall()
         {
-            var ball = Instantiate(Resources.Load<GameObject>("Ball"));
+            var ball = Instantiate(Resources.Load<GameObject>("MainBall"));
+
+            ball.name = "MainBall";
             ball.transform.position = spawnPosition.position;
+            var rb = ball.GetComponent<Rigidbody>();
+            rb.AddForce(spawnPosition.transform.forward * 1000, ForceMode.Acceleration);
+            money -= 100;
+            buttonPrice.text = "$200";
         }
     }
 }

@@ -11,6 +11,7 @@ namespace _Scripts
         [SerializeField] private AudioClip popSound, throwSound;
         [SerializeField] private Vector3 startSpeed;
 
+        private int spawnedCount;
         private Material _material;
         private Camera _cam;
         private bool _isSpawned;
@@ -41,6 +42,7 @@ namespace _Scripts
         public void SetAsSpawned()
         {
             _isSpawned = true;
+            spawnedCount++;
         }
 
         private void AllowMultiply()
@@ -50,7 +52,7 @@ namespace _Scripts
 
         private void Update()
         {
-            if(_onZLimit) return;
+            if(!_onZLimit) return;
             
             var position = transform.position;
             var clampedPos = new Vector3(position.x, position.y,
@@ -70,42 +72,57 @@ namespace _Scripts
             
             if (other.gameObject.TryGetComponent(out IGate gate)) 
             {
+                if (spawnedCount > 1)
+                {
+                    return;
+                }
+
+                if (gameObject.name!="MainBall")
+                {
+                    spawnedCount++;
+                }
                 gate.Execute();
             }
 
             if (other.gameObject.CompareTag("Destroy"))
             {
-                if(!_isSpawned) return;
-
                 var textParticle = Instantiate(Resources.Load<GameObject>("Text (TMP)"));
                 textParticle.transform.position = transform.position;
                 textParticle.transform.DOMoveY(3, 2).SetEase(Ease.InSine).OnComplete(() => StopParticle(textParticle));
                 textParticle.transform.DOScale(Vector3.zero, 1).SetEase(Ease.InSine);
                 BallManager.Instance.money++;
+                if(!_isSpawned) return;
+
+                
                 AudioSource.PlayClipAtPoint(popSound, _cam.transform.position);
                 var particle = Instantiate(Resources.Load<GameObject>("Confetti"));
                 particle.transform.position = transform.position;
                 Destroy(gameObject);
             }
 
+            
+            
             if (other.gameObject.CompareTag("Respawn"))
             {
                 _rb.velocity = Vector3.zero;
-                _rb.AddForce(other.transform.forward*1500,ForceMode.Acceleration);
+                _rb.AddForce(other.transform.forward*2500,ForceMode.Acceleration);
             }
 
             if (other.gameObject.CompareTag("Finish"))
             {
-                _onZLimit = !_onZLimit;
+                _onZLimit = false;
                 _rb.velocity = Vector3.zero;
-                _rb.AddForce(other.transform.forward*1500,ForceMode.Acceleration);
+                _rb.AddForce(other.transform.forward*2500,ForceMode.Acceleration);
             }
 
             if (other.gameObject.CompareTag("Player"))
             {
                 AudioSource.PlayClipAtPoint(throwSound, _cam.transform.position);
-                _onZLimit = !_onZLimit;
-                _rb.AddForce(other.transform.forward*750,ForceMode.Acceleration);
+                if (!_onZLimit)
+                {
+                    _onZLimit = true;
+                }
+                _rb.AddForce(other.transform.forward*150,ForceMode.Acceleration);
             }
         }
         private void OnTriggerExit(Collider other)
