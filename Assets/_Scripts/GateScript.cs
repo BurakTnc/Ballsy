@@ -17,6 +17,7 @@ namespace _Scripts
                     var newBall = Instantiate(Resources.Load<GameObject>("Ball"));
                     var ballScript = newBall.GetComponent<BallController>();
                     ballScript.BlockMultiply();
+                    ballScript.SetAsSpawned();
                     newBall.transform.position = transform.position;
                 }
             }
@@ -27,6 +28,7 @@ namespace _Scripts
                     var newBall = Instantiate(Resources.Load<GameObject>("Ball"));
                     var ballScript = newBall.GetComponent<BallController>();
                     ballScript.BlockMultiply();
+                    ballScript.SetAsSpawned();
                     newBall.transform.position = transform.position;
                 }
             }

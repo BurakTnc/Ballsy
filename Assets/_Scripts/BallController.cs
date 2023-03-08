@@ -5,8 +5,11 @@ namespace _Scripts
 {
     public class BallController : MonoBehaviour
     {
+        [SerializeField] private AudioClip popSound, throwSound;
         [SerializeField] private Vector3 startSpeed;
 
+        private Camera _cam;
+        private bool _isSpawned;
         private bool _onGate;
         private bool _onZLimit;
         private SphereCollider _collider;
@@ -14,6 +17,7 @@ namespace _Scripts
 
         private void Awake()
         {
+            _cam = Camera.main;
             _rb = GetComponent<Rigidbody>();
             _collider = GetComponent<SphereCollider>();
         }
@@ -26,6 +30,11 @@ namespace _Scripts
         public void BlockMultiply()
         {
             _onGate = true;
+        }
+
+        public void SetAsSpawned()
+        {
+            _isSpawned = true;
         }
 
         private void AllowMultiply()
@@ -53,6 +62,16 @@ namespace _Scripts
                 gate.Execute();
             }
 
+            if (other.gameObject.CompareTag("Destroy"))
+            {
+                if(!_isSpawned) return;
+
+                AudioSource.PlayClipAtPoint(popSound, _cam.transform.position);
+                var particle = Instantiate(Resources.Load<GameObject>("Confetti"));
+                particle.transform.position = transform.position;
+                Destroy(gameObject);
+            }
+
             if (other.gameObject.CompareTag("Respawn"))
             {
                 _rb.velocity = Vector3.zero;
@@ -68,6 +87,7 @@ namespace _Scripts
 
             if (other.gameObject.CompareTag("Player"))
             {
+                AudioSource.PlayClipAtPoint(throwSound, _cam.transform.position);
                 _onZLimit = !_onZLimit;
                 _rb.AddForce(other.transform.forward*750,ForceMode.Acceleration);
             }

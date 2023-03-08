@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7063594513c64a93818e162ceb76c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popSound: {fileID: 8300000, guid: d23590d1dd156404a85c19934ee1886c, type: 3}
+  throwSound: {fileID: 8300000, guid: 9e360dcaf563b4701a7cbc54c5974cef, type: 3}
   startSpeed: {x: 0, y: 0, z: 0}
 --- !u!54 &5038572908442597961
 Rigidbody:
