@@ -111,8 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7063594513c64a93818e162ceb76c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.8962264, g: 0.30860624, b: 0.30860624, a: 0}
+  - {r: 0.6226415, g: 0.5327114, b: 0.16153437, a: 0}
+  - {r: 0.8679245, g: 0.4626201, b: 0.80367327, a: 0}
+  - {r: 0.21560162, g: 0.5377358, b: 0.26370957, a: 0}
+  - {r: 0.07609471, g: 0.22188997, b: 0.3584906, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   popSound: {fileID: 8300000, guid: d23590d1dd156404a85c19934ee1886c, type: 3}
-  throwSound: {fileID: 8300000, guid: 9e360dcaf563b4701a7cbc54c5974cef, type: 3}
+  throwSound: {fileID: 8300000, guid: ef512e6f631ca4866a27a9ce3176d332, type: 3}
   startSpeed: {x: 0, y: 0, z: 0}
 --- !u!54 &5038572908442597961
 Rigidbody:

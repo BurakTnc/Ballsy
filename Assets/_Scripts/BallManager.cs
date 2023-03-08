@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BallManager : MonoBehaviour
+namespace _Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BallManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Transform spawnPosition;
+        public int money;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SpawnBall()
+        {
+            var ball = Instantiate(Resources.Load<GameObject>("Ball"));
+            ball.transform.position = spawnPosition.position;
+        }
     }
 }

@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Scripts
 {
     public class BallController : MonoBehaviour
     {
+        [SerializeField] private Material[] colors;
         [SerializeField] private AudioClip popSound, throwSound;
         [SerializeField] private Vector3 startSpeed;
 
+        private Material _material;
         private Camera _cam;
         private bool _isSpawned;
         private bool _onGate;
@@ -17,6 +20,7 @@ namespace _Scripts
 
         private void Awake()
         {
+            _material = GetComponent<MeshRenderer>().material;
             _cam = Camera.main;
             _rb = GetComponent<Rigidbody>();
             _collider = GetComponent<SphereCollider>();
@@ -30,6 +34,7 @@ namespace _Scripts
         public void BlockMultiply()
         {
             _onGate = true;
+            _material.color = colors[Random.Range(0, colors.Length - 1)].color;
         }
 
         public void SetAsSpawned()
