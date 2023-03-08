@@ -11,8 +11,11 @@ Material:
   m_Shader: {fileID: 4800000, guid: f8d49205b3b0a644195633020367689d, type: 3}
   m_ValidKeywords:
   - TCP2_DISABLE_WRAPPED_LIGHT
+  - TCP2_SPEC_TOON
+  - TCP2_STYLIZED_FRESNEL
   - _ALPHAPREMULTIPLY_ON
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -75,7 +78,12 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 3
+    - _NormalsSource: 0
+    - _NormalsUVType: 0
     - _OcclusionStrength: 1
+    - _Offset1: 0
+    - _Offset2: 0
+    - _Outline: -1.43
     - _Parallax: 0.02
     - _RampSmooth: 0.2
     - _RampSmoothAdd: 0.75
@@ -89,15 +97,21 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TCP2_DISABLE_WRAPPED_LIGHT: 1
+    - _TCP2_OUTLINE_CONST_SIZE: 0
+    - _TCP2_OUTLINE_TEXTURED: 0
     - _TCP2_RAMPTEXT: 0
-    - _TCP2_SPEC_TOON: 0
-    - _TCP2_STYLIZED_FRESNEL: 0
+    - _TCP2_SPEC_TOON: 1
+    - _TCP2_STYLIZED_FRESNEL: 1
+    - _TCP2_ZSMOOTH_ON: 0
+    - _TexLod: 5
     - _UVSec: 0
+    - _ZSmooth: -0.5
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.5566037, g: 0.5566037, b: 0.5566037, a: 0.36862746}
+    - _Color: {r: 0.7783019, g: 0.9484313, b: 1, a: 0.24705882}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
     - _SColor: {r: 0.24999997, g: 0.24999997, b: 0.24999997, a: 1}
   m_BuildTextureStacks: []
