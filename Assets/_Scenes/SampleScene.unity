@@ -227,10 +227,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8325208354619397328, guid: 5341e3992063448de954f800add4dbf7, type: 3}
-      propertyPath: m_Name
-      value: RotatingPipe
-      objectReference: {fileID: 0}
     - target: {fileID: 8325208355077029589, guid: 5341e3992063448de954f800add4dbf7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -245,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8325208355077029589, guid: 5341e3992063448de954f800add4dbf7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 8325208355077029589, guid: 5341e3992063448de954f800add4dbf7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -300,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &375490029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -506,7 +502,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &396255590
 MonoBehaviour:
@@ -1932,7 +1928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733406280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4, y: -31.22, z: 0}
+  m_LocalPosition: {x: -2.4, y: -31.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2174,7 +2170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1345365895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2370,7 +2366,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31272
+  m_Name: pb_Mesh48856
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
