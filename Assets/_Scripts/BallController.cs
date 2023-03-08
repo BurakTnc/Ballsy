@@ -31,6 +31,7 @@ namespace _Scripts
         private void Start()
         {
             _rb.velocity = startSpeed;
+            _onZLimit = true;
         }
 
         public void BlockMultiply()
