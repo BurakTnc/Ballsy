@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -58,6 +59,11 @@ namespace _Scripts
             transform.position = position;
         }
 
+        private void StopParticle(GameObject obj)
+        {
+            Destroy(obj);
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if(_onGate) return;
@@ -71,6 +77,11 @@ namespace _Scripts
             {
                 if(!_isSpawned) return;
 
+                var textParticle = Instantiate(Resources.Load<GameObject>("Text (TMP)"));
+                textParticle.transform.position = transform.position;
+                textParticle.transform.DOMoveY(3, 2).SetEase(Ease.InSine).OnComplete(() => StopParticle(textParticle));
+                textParticle.transform.DOScale(Vector3.zero, 1).SetEase(Ease.InSine);
+                BallManager.Instance.money++;
                 AudioSource.PlayClipAtPoint(popSound, _cam.transform.position);
                 var particle = Instantiate(Resources.Load<GameObject>("Confetti"));
                 particle.transform.position = transform.position;
