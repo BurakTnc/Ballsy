@@ -696,6 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7063594513c64a93818e162ceb76c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popSound: {fileID: 0}
+  throwSound: {fileID: 0}
   startSpeed: {x: 0, y: -2, z: 0}
 --- !u!1 &693247142
 GameObject:
@@ -3547,6 +3549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5910795854882426857, guid: d2bc99504d695436b8fc413471b77e21, type: 3}
+      propertyPath: m_TagString
+      value: Destroy
+      objectReference: {fileID: 0}
     - target: {fileID: 6617035367158828313, guid: d2bc99504d695436b8fc413471b77e21, type: 3}
       propertyPath: m_Name
       value: Gain
